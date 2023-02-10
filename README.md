@@ -182,6 +182,6 @@ I would like to thank... <a href="https://www.microverse.org/?gclid=CjwKCAiArY2f
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENCE) licensed.
+This project is [MIT](https://github.com/demix007/my-blog-app/blob/data-model/LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
