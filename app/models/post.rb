@@ -4,7 +4,7 @@ class Post < ApplicationRecord
     has_many :comments
     after_save :update_posts_counter
     validates :text, presence: true
-    validates :title, presence: true, length: { in: 3..100 }
+    validates :title, presence: true, length: { in: 3..250 }
     validates :comments_counter, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
     validates :likes_counter, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
