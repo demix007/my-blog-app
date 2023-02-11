@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  subject{Like.new(author_id: 10, posts_id: 20)}
+  subject { Like.new(author_id: 10, posts_id: 20) }
   before { subject.save }
 
   it 'expects author_id to be present in the Like' do
@@ -15,7 +15,7 @@ RSpec.describe Like, type: :model do
   end
 
   it 'expects author_id to be valid' do
-    expect(subject.author_id).to eql 10 
+    expect(subject.author_id).to eql 10
   end
 
   it 'expects posts_id to be present in the Like' do
@@ -29,6 +29,6 @@ RSpec.describe Like, type: :model do
   end
 
   it 'expects posts_id to be valid' do
-    expect(subject.posts_id).to eql 20 
+    expect(subject.posts_id).to eql 20
   end
 end

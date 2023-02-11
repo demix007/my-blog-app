@@ -12,7 +12,7 @@ RSpec.describe User, type: :model do
 
   it 'expects the user name to not be too long' do
     subject.name = 'Ayodeji' * 200
-    expect(subject).to_not be_valid 
+    expect(subject).to_not be_valid
   end
 
   it 'expects the user name to not be too short' do
