@@ -15,4 +15,8 @@ RSpec.describe 'PostsController', type: :request do
       expect(response).to render_template(:index)
     end
   end
+
+  describe 'GET posts_controller#show' do
+    before(:example) { get '/users/:user_id/posts/:post_id' } # get(:index)
+  end
 end
