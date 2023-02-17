@@ -1,0 +1,8 @@
+<div class="post_details_container">
+  <h2 class="post_title"> Post # <%= post.id %> </h2>
+  <% if (show_full_post) %>
+    <p class="user_post_text"><%= post.text %></p>
+  <% else %>
+    <p class="user_post_text"><%= truncate(post.text, length: 250, omission: "...") %></p>
+  <% end %>
+</div>
