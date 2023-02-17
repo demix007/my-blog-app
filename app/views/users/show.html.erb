@@ -1,2 +1,16 @@
-<h1>This is used to display user with id</h1>
+<section class="user_container">
+  <%= render partial: "shared/user", locals: {user: @user || "There are currently no users"} %>
 
+  <div class="user_bio">
+    <h3><%= @user.name %>'s Bio</h3>
+    <p><%= @user.bio %></p>
+  </div>
+
+  <% @most_recent_posts.each do |post| %>
+    <%= render partial: 'shared/post', locals: { post: post, show_full_post: false } %>
+  <% end %>
+
+  <div class="btn_container">
+    <button type="button" class="btn"><%= link_to "Click here to see all posts", user_posts_path(@user) %></button>
+  </div>
+</section>
