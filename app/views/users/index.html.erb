@@ -1,1 +1,5 @@
-<h1> This is used to display the users home page</h1>
+<section class="users_container">
+  <div>
+    <%= render partial: "shared/user", collection: @users, as: :user || ">There are currently no users" %>
+  </div>
+</section

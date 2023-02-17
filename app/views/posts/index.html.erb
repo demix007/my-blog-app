@@ -1,2 +1,8 @@
-<h1>This is responsible for showing post with User_id</h1>
-
+<section class="posts_container">
+  <%= render partial: "shared/user", locals: {user: @user || "There are currently no users"} %>
+  <% @posts.each do |post| %>
+    <%= link_to user_post_path(user_id: post.author.id, id: post.id), class: "post_partial" do %>
+  <%= render partial: 'shared/post', locals: { post: post, show_full_post: false } %>
+  <% end %>
+  <% end %>
+</section>
