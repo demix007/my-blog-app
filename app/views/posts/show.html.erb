@@ -1,1 +1,3 @@
-<h1>This is used to display post with post_id and user with user_id</h1>
+<section class="full_post_container">
+  <%= render partial: 'shared/post', locals: { post: @post, show_full_post: true } %>
+</section>
