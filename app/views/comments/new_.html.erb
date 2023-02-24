@@ -1,0 +1,6 @@
+<section class="new_comment_container">
+  <%= form_with model: @comment, url: user_post_comments_path, local: true do |form| %>
+    <%= form.text_field :text, class: "comment_field", placeholder: "Enter a text here" %>
+    <%= form.submit "Add comment", class: "submit-btn btn" %>
+  <% end %>
+</section>
