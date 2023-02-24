@@ -1,12 +1,12 @@
 class CommentsController < ApplicationController
     
     def new
-        @post = Post.find(params[:post_id])
+        @post = Post.find(params[:posts_id])
         @comment = Comment.new
     end
 
     def create
-        @post = Post.find(params[:post_id])
+        @post = Post.find(params[:posts_id])
         @comment = Comment.new(comment_params)
         @comment.author = current_user
         @comment.post = @post
@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
         @comment = Comment.find(params[:id])
     
         if @comment.destroy
-          redirect_to user_post_path(user_id: current_user.id, id: @comment.post_id), notice: 'Comment deleted successfully'
+          redirect_to user_post_path(user_id: current_user.id, id: @comment.posts_id), notice: 'Comment deleted successfully'
         else
           flash.new[:alert] = @comment.errors.full_messages.first if @comment.errors.any?
           render :show, status: 400
