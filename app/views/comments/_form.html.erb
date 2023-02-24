@@ -1,0 +1,17 @@
+<%= form_with(model: Comment.new, url: {action: "create"}) do |form| %>
+
+  <div class="input">
+    <%= form.label :text %>
+    <%= form.text_field :text %>
+  </div>
+
+  <div class="submit_button">
+    <%= form.submit "submit" %>
+  </div>
+
+  <div class="post_button">
+    <button>
+      <%= link_to "Go Back",  user_post_path(user, post)%>
+    </button>
+  </div>
+<% end %>>

@@ -1,0 +1,12 @@
+<%= link_to user_path(user) do %>
+
+  <article class="user d-flex">
+    <div class="img-container">
+			<img src="<%= user.photo %>" alt="<%= user.bio %>">
+    </div>
+    <div class="details d-flex">
+      <h2 class="name"><%= user.name %></h2>
+      <span class="sub">Number of posts: <%= user.post_counter %></span>
+    </div>
+  </article>
+<% end %>

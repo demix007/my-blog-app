@@ -1,14 +1,30 @@
-<section class="all_posts_container">
-  <%= render partial: "shared/user", locals: {user: @user || "No users found"} %>
-  <% @posts.each do |post| %>
-    <%= link_to user_post_path(user_id: post.author.id, id: post.id), class: "post_partial" do %>
-  <%= render partial: 'shared/post', locals: { post: post, show_full_post: false } %>
-  <% end %>
-  <div class="recent_comments_container">
-    <% post.recent_comments.each do |comment| %>
-      <%= render partial: 'shared/comment', locals: { comment: comment } %>
-    <% end %>
+<section class="showUsers">
+  <h1>Single User's Posts</h1>
+
+  <% render 'users/user', user: @user %>
+
+   <article class="user">
+    <div class="img-container">
+      <img src="<%= @user.photo %>" alt="<%= @user.name %>">
+    </div>
+    <div class="user_details">
+      <h2 class="name"><%= @user.name %></h2>
+      <span class="sub">Number of posts: <%= @user.post_counter %></span>
+    </div>
+  </article>
+
+  <div class="user_posts">
+    <%= render  @posts %>
   </div>
-  <% end %>
-  <button type="button" class="btn">Pagination</button>
+  <div class="post-button">
+    <button>
+      <%= link_to "Go back", user_path(@user)%>
+    </button>
+  </div>
+
+  <div class="add_new_post_btn">
+    <button>
+      <%= link_to "Add_New_Post", new_user_post_path(@user)%>
+    </button>
+  </div>
 </section>
