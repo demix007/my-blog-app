@@ -1,3 +1,10 @@
 <section class="full_post_container">
+  <%= render partial: "shared/like", locals: { like: Like.new, posts_id: @post.id, user_id: @post.author.id } %>
   <%= render partial: 'shared/post', locals: { post: @post, show_full_post: true } %>
+  <div class="full_comments_container">
+    <% @post.comments.each do |comment| %>
+      <%= render partial: 'shared/comment', locals: { comment: comment } %>
+    <% end %>
+  </div>
+  <button type="button" class="create_post_btn btn"><%= link_to "Add a new comment", new_user_post_comment_path(user_id: @post.author.id, posts_id: @post.id) %></button>
 </section>
