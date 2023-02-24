@@ -29,4 +29,8 @@ class CommentsController < ApplicationController
           render :show, status: 400
         end
     end
+
+    def comment_params
+        params.require(:comment).permit(:text)
+    end
 end
