@@ -1,0 +1,24 @@
+<%= link_to(user_post_path(@user, post)) do %>
+
+  <div class="post_container">
+    <div class="post">
+      <h3><%= post.title %></h3>
+      <p><%= post.text[0..45] %> ...</p>
+    </div>
+    <div class="post_actions">
+      <span>Comments: <%= post.comments_counter%></span>
+      <span>Likes: <%= post.likes_counter%></span>
+    </div>
+  </div>
+
+  <div class="comments_container">
+    <% if post.comments == [] %>
+      <p>No comments !!!</p>
+    <% end %>
+    <% post.comments.order('created_at DESC').limit(5).each do |comment|%>
+      <div class="comment_container"
+        <span><%=comment.text %></span>
+      </div>
+    <% end %>
+  </div>
+<% end %>

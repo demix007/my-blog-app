@@ -1,0 +1,26 @@
+<%= form_with(model: @post, url: {action: "create"}) do |form| %>
+  <div class="input">
+    <%= form.label :title %>:
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="input">
+    <%= form.label :text %>:
+    <%= form.text_field :text %>
+  </div>
+
+  <div class="d-none">
+    <%= form.text_field :comments_counter, value: 0 %>
+    <%= form.text_field :likes_counter, value: 0 %>
+  </div>
+
+  <div class="submit d-flex">
+    <%= form.submit "submit" %>
+  </div>
+
+  <div class="post-btn">
+    <button>
+      <%= link_to "back",  user_posts_path(@user)%>
+    </button>
+  </div>
+<% end %>

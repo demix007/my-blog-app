@@ -1,3 +1,49 @@
-<section class="full_post_container">
-  <%= render partial: 'shared/post', locals: { post: @post, show_full_post: true } %>
+<section class="postsDetails">
+  <h1>Show posts details</h1>
+
+  <% render  @post %>
+  <% render 'posts/post', post: @post %>
+
+  <div class="postDetails">
+    <div class="title-details flex">
+      <h3><%= @post.title %> by <%= @user.name%></h3>
+      <div>
+        <span>Comments: <%= @post.comments_counter%></span>
+        <span>Likes: <%= @post.likes_counter%></span>
+      </div>
+    </div>
+
+    <%= @post.text %>
+  </div>
+
+  <div class="comments">
+    <% if @comments == [] %>
+      <p>No comments !!!</p>
+    <% end %>
+    <% @comments.each do |comment|%>
+      <div class="comment-container"
+        <span><%=@user.name %>:</span>
+        <span><%=comment.text %></span>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="post-btn">
+    <button>
+      <%= link_to "back",  user_posts_path(@user)%>
+    </button>
+  </div>
+
+
+  <div class="add-post-btn d-flex">
+    <button>
+      <%= link_to "Add Comment", new_user_post_comment_path(@user, @post)%>
+    </button>
+  </div>
+
+  <div class="add-post-btn d-flex">
+    <buttons>
+      <%= button_to "Add Like", user_post_likes_path(@user, @post)%>
+    </button>
+  </div>
 </section>
