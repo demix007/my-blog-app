@@ -1,8 +1,14 @@
-<section class="posts_container">
-  <%= render partial: "shared/user", locals: {user: @user || "There are currently no users"} %>
+<section class="all_posts_container">
+  <%= render partial: "shared/user", locals: {user: @user || "No users found"} %>
   <% @posts.each do |post| %>
     <%= link_to user_post_path(user_id: post.author.id, id: post.id), class: "post_partial" do %>
   <%= render partial: 'shared/post', locals: { post: post, show_full_post: false } %>
   <% end %>
+  <div class="recent_comments_container">
+    <% post.recent_comments.each do |comment| %>
+      <%= render partial: 'shared/comment', locals: { comment: comment } %>
+    <% end %>
+  </div>
   <% end %>
+  <button type="button" class="btn">Pagination</button>
 </section>
